@@ -42,13 +42,22 @@ class App extends React.Component {
           type: "all"})}))
 
       this.setState(Object.assign({}, this.state,{pets: allPets.getAll()}))
-      
+
         }
       }
+
+    petAdopted(pet) {
+      if (this.state.adoptedPets.includes(pet)) {
+        this.state.adoptedPets.delete(pet)
+      } else {
+        this.state.adoptedPets.push(pet)
+      }
+    }
 
 
 
   render() {
+    debugger
     return (
       <div className="ui container">
         <header>
@@ -60,7 +69,7 @@ class App extends React.Component {
               <Filters data={this.props.data} petFinder ={this.petFinder.bind(this)}/>
             </div>
             <div className="twelve wide column">
-              <PetBrowser data={this.props.data} state={this.state} allPets ={allPets}/>
+              <PetBrowser data={this.props.data} state={this.state} allPets ={allPets} petAdopted={this.petAdopted.bind(this)}/>
             </div>
           </div>
         </div>
