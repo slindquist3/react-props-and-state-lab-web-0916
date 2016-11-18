@@ -4,12 +4,16 @@ const Pet = require('./Pet');
 
 class PetBrowser extends React.Component {
   render() {
+    console.log(this.props.allPets.getAll())
     return (
-      <div className="ui cards">
-        <code>&lt;Pet /&gt;</code> &nbsp; components should go here
+      <div>
+        <div className="ui cards">
+          {this.props.allPets.getAll().map(pet => <Pet data={pet} />)}
+        </div>
       </div>
     );
   }
 }
 
 module.exports = PetBrowser;
+{/* <Pet data={this.props.allPets.getAll()[0]}/> */}

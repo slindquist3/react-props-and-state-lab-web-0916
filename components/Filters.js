@@ -3,7 +3,15 @@ const React = require('react');
 class Filters extends React.Component {
   constructor() {
     super();
+
   }
+
+
+  // getAll: () => allPets,
+  // getByType: (type) => allPets.filter(p => p.type === type),
+  // getBetweenAge: (from, to) => allPets.filter(p => p.age >= from && p.age <= to),
+
+
 
   render() {
     return (
@@ -19,7 +27,7 @@ class Filters extends React.Component {
         </div>
 
         <div className="field">
-          <button className="ui secondary button">Find pets</button>
+          <button className="ui secondary button" onClick={this.props.petFinder}>Find pets</button>
         </div>
       </div>
     );

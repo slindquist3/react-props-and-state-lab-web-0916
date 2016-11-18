@@ -2,6 +2,7 @@ const React = require('react');
 
 const Filters = require('./Filters');
 const PetBrowser = require('./PetBrowser');
+const allPets = require('../data/pets.js')
 
 class App extends React.Component {
   constructor() {
@@ -16,7 +17,23 @@ class App extends React.Component {
     };
   }
 
+  petFinder(event) {
+    if (document.getElementById("type").value !== "all") {
+      this.setState(Object.assign({}, this.state, {
+        filters: Object.assign({}, this.state.filters, {
+          type: document.getElementById("type").value})}))
+        }
+     else {
+      this.setState(Object.assign({}, this.state, {
+        filters: Object.assign({}, this.state.filters, {
+          type: "all"})}))
+        }
+      }
+
+
+
   render() {
+    debugger
     return (
       <div className="ui container">
         <header>
@@ -25,10 +42,10 @@ class App extends React.Component {
         <div className="ui container">
           <div className="ui grid">
             <div className="four wide column">
-              <Filters />
+              <Filters data={this.props.data} petFinder ={this.petFinder.bind(this)}/>
             </div>
             <div className="twelve wide column">
-              <PetBrowser />
+              <PetBrowser data={this.props.data} allPets ={allPets}/>
             </div>
           </div>
         </div>
