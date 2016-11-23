@@ -14,8 +14,7 @@ class Pet extends React.Component {
   }
 
   handleOnClick() {
-
-    this.props.petAdopted(this)
+    this.props.petAdopted(this.props.data)
   }
   //it should show the pet's name, type, age and weight
 

@@ -9,7 +9,6 @@ class App extends React.Component {
     super();
 
 
-
     this.state = {
       pets: [],
       adoptedPets: [],
@@ -47,17 +46,14 @@ class App extends React.Component {
       }
 
     petAdopted(pet) {
-      if (this.state.adoptedPets.includes(pet)) {
-        this.state.adoptedPets.delete(pet)
-      } else {
-        this.state.adoptedPets.push(pet)
-      }
+
+          this.setState({adoptedPets: this.state.adoptedPets.push(pet)})
     }
 
 
 
+
   render() {
-    debugger
     return (
       <div className="ui container">
         <header>
